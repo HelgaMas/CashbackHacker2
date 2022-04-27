@@ -1,8 +1,8 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 
 public class CashbackHackServiceTest {
@@ -11,30 +11,30 @@ public class CashbackHackServiceTest {
     @Test
     public void shouldCountRemainsBeforeMax() {
         int amount = 999;
-        assertEquals(service.remain(amount), 1);
+        assertEquals(1, service.remain(amount));
     }
 
     @Test
     public void shouldCountRemainsAfterMin() {
         int amount = 1;
-        assertEquals(service.remain(amount), 999);
+        assertEquals(999, service.remain(amount));
     }
 
     @Test
     public void shouldCountRemainsWithoutPurchase() {
         int amount = 0;
-        assertEquals(service.remain(amount), 1000);
+        assertEquals(1000, service.remain(amount));
     }
 
     @Test
     public void shouldCountRemains() {
         int amount = 200;
-        assertEquals(service.remain(amount), 800);
+        assertEquals(800, service.remain(amount));
     }
 
     @Test
     public void shouldCountRemainsWithError() {
         int amount = 1000;
-        assertEquals(service.remain(amount), 0);
+        assertEquals(0, service.remain(amount));
     }
 }
